@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>القطع النقدية</title>
+  <script src="https://zimjs.org/cdn/1.3.2/createjs.js"></script>
+  <script src="js/zim.js"></script>
+  <script src="https://d309knd7es5f10.cloudfront.net/pizzazz_03.js"></script>
+  <script>
+    var assets = ["5.png", "10.png", "10_1.png", "20.png", "20_1.png", "50.png", "100_2.png", "100_1.png", "100.png", "200.png", "200_1.png", "1000.png", 'faux.mp4', "true.mp4"];
+    var path = "assets/";
+    var pattern = pizzazz.makePattern({
+        type:"slants",
+        colors:makeSeries(["purple",  "grey"]),
+        size:5,
+        rows:20,
+        cols:60,
+        interval:500
+    });
+var bar = new ProgressBar({
+        barType:"Rectangle",
+        color:"dark",
+        foregroundColor:'red',
+
+        backing:pattern,
+
+        percentage:true,
+
+    });
+    const frame = new Frame("fit", 1024, 768, white, 'rgb(177, 177, 177)', assets, path,bar);
+    frame.on("ready", () => {
+      const stage = frame.stage;
+      let stageW = frame.width;
+      let stageH = frame.height;
+
+
+      // sac init. de l'argent ...
+
+
+      sac_init = new Panel({
+        height: stageH / 2 + 200,
+        titleBar: "    القطع النقدية"
+      }).addTo(stage)
+      sac_init.pos(stageW - sac_init.width, 0)
+
+      sac_init_2 = new Panel({
+        height: 400,
+        width: 500,
+        titleBar: "                      ضع القطع النقدية هنا"
+      }).centerReg(stage, 0).pos(150,135)
+      // piece 5 millimme
+      p5 = frame.asset('5.png').siz(70).centerReg(sac_init).drag();
+
+      // piece 10 millimme
+      p10 = frame.asset('10.png').siz(70).centerReg(sac_init).drag();
+      //    p10_1 = frame.asset('10_1.png').siz(70).centerReg(sac_init).drag();
+
+      // piece 20 millimme
+      p20 = frame.asset('20.png').siz(78).centerReg(sac_init).drag();
+      //  p20_1 = frame.asset('20_1.png').siz(78).centerReg(sac_init).drag();
+
+      // piece 50 millimme
+      p50 = frame.asset('50.png').siz(88).centerReg(sac_init).drag();
+
+      // piece 100 millimme
+      p100 = frame.asset('100.png').siz(110).centerReg(sac_init).drag();
+      p100_1 = frame.asset('100_1.png').siz(110).centerReg(sac_init).drag();
+      p100_2 = frame.asset('100_2.png').siz(110).centerReg(sac_init).drag();
+
+      // piece 200 millimme
+      p200 = frame.asset('200.png').siz(120).centerReg(sac_init).drag();
+      p200_1 = frame.asset('200_1.png').siz(120).centerReg(sac_init).drag();
+
+      // piece 1000 millimme
+      p1000 = frame.asset('1000.png').siz(119).centerReg(sac_init).drag();
+
+      p5.startX = p5.x = 121;
+      p5.startY = p5.y = 78;
+
+      p10.startX = p10.x = 204;
+      p10.startY = p10.y = 221;
+      // p10_1.startX = p10_1.x = 204;
+      // p10_1.startY = p10_1.y = 221;
+
+      p20.startX = p20.x = 202;
+      p20.startY = p20.y = 358;
+      // p20_1.startX = p20_1.x = 202;
+      // p20_1.startY = p20_1.y = 358;
+
+      p50.startX = p50.x = 193;
+      p50.startY = p50.y = 511;
+
+      p100.startX = p100.x = 74;
+      p100.startY = p100.y = 221;
+      p100_1.startX = p100_1.x = 74;
+      p100_1.startY = p100_1.y = 221;
+      p100_2.startX = p100_2.x = 74;
+      p100_2.startY = p100_2.y = 221;
+
+      p200.startX = p200.x = 69;
+      p200.startY = p200.y = 373;
+      p200_1.startX = p200_1.x = 69;
+      p200_1.startY = p200_1.y = 373;
+
+      p1000.startX = p1000.x = 78;
+      p1000.startY = p1000.y = 511
+
+
+      pt1 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(90).pos(0, 40);
+
+      pt10 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(90).pos(100, 40);
+      pt10_1 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(90).pos(200, 40);
+
+      pt20 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(90).pos(300, 40);
+      pt20_1 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(90).pos(400, 40);
+
+      pt50 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(100).pos(0, 140);
+
+      pt100 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(100).pos(120, 140);
+      pt100_1 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(100).pos(240, 140);
+      pt100_2 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(100).pos(360, 140);
+
+      pt200 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(130).pos(5, 250);
+      pt200_1 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(130).pos(150, 250);
+
+      pt1000 = new Rectangle({
+        color: 'transparent'
+      }).addTo(sac_init_2).siz(130).pos(300, 250);
+
+      function flouse(obj, pto, ptx, pty) {
+
+        obj.on("pressup", function(e) {
+
+          if (!obj.hitTestBounds(sac_init_2)) {
+            sac_init_2.backgroundColor = '#eee';
+
+            obj.animate({
+              x: obj.startX,
+              y: obj.startY
+            }, 200);
+
+
+          } else {
+            sac_init_2.backgroundColor = '#eee';
+            obj.animate({
+              x: ptx,
+              y: pty
+            }, 200);
+          }
+        });
+        obj.on("pressmove", function(e) {
+          if (obj.hitTestBounds(sac_init_2)) {
+            sac_init_2.background = '#03a9f41f';
+          } else {
+            sac_init_2.background = '#eee';
+          }
+
+        });
+      }
+
+
+
+      f5 = new flouse(p5, pt1, -579, 215);
+
+      f10 = new flouse(p10, pt10, -480, 215);
+      // f10_1 = new flouse(p10_1, pt10_1, -330, 215);
+
+      f20 = new flouse(p20, pt20, -280, 215);
+      // f20_1 = new flouse(p20_1, pt20_1, -130, 215);
+
+      f50 = new flouse(p50, pt50, -579, 322);
+
+      f100 = new flouse(p100, pt100, -450, 322);
+      f100_1 = new flouse(p100_1, pt100_1, -340, 322);
+      f100_2 = new flouse(p100_2, pt100_2, -230, 322);
+
+      f200 = new flouse(p200, pt200, -555, 450);
+      f200_1 = new flouse(p200_1, pt200_1, -415, 450);
+
+      f1000 = new flouse(p1000, pt1000, -260, 450);
+      sound_v = frame.asset("true.mp4");
+      sound_f = frame.asset("faux.mp4");
+
+      function hitem(obj, pto) {
+        if (obj.hitTestBounds(pto)) {
+          return true
+        } else {
+          return false
+        }
+      }
+
+
+      var button = new Button(300, 70, "تثبت من الاجابة ").addTo().pos(stageW-360,stageH-100)
+      button.on("click", function(e) {
+        if (hitem(p5, pt1) && hitem(p10, pt10) && hitem(p20, pt20) && hitem(p200, pt200) && hitem(p200_1, pt200_1) &&
+          hitem(p100, sac_init) && hitem(p100_1, sac_init) && hitem(p100_2, sac_init) &&
+          hitem(p1000, sac_init) && hitem(p50, sac_init)) {
+          zog('ok')
+          sound_v.play()
+        } else {
+          zog('no')
+          sound_f.play()
+        }
+      });
+
+
+      stage.update();
+    });
+  </script>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body></body>
+
+</html>
