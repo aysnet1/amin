@@ -28,7 +28,7 @@ var bar = new ProgressBar({
         percentage:true,
 
     });
-    const frame = new Frame("fit", 1024, 768, white, 'rgb(177, 177, 177)', assets, path,bar);
+    const frame = new Frame("fit", 1024, 768, white, white, assets, path,bar);
     frame.on("ready", () => {
       const stage = frame.stage;
       let stageW = frame.width;
